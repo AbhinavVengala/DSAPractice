@@ -1,0 +1,18 @@
+# Ignore compiled class files
+*.class
+
+# Ignore log files
+*.log
+
+# Ignore temp files
+*.tmp
+
+# Ignore build directories
+/out/
+/target/
+/bin/
+
+# Ignore IDE-specific files
+.idea/
+.vscode/
+*.iml
