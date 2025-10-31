@@ -1,6 +1,6 @@
 # 🚀 DSA in Java
 
-![Problems Solved](https://img.shields.io/badge/Solved-1-brightgreen?style=for-the-badge)  
+![Problems Solved](https://img.shields.io/badge/Solved-3-brightgreen?style=for-the-badge)  
 ![LeetCode Badge](https://img.shields.io/badge/dynamic/json?style=for-the-badge&logo=leetcode&label=LeetCode&query=totalSolved&url=https://leetcode-stats-api.herokuapp.com/Code_with_Abhinav)
 [![HackerRank Badge](https://img.shields.io/badge/HackerRank-Profile-brightgreen?style=for-the-badge&logo=hackerrank)](https://www.hackerrank.com/<your-username>)
 [![GfG Badge](https://img.shields.io/badge/GeeksforGeeks-Profile-darkgreen?style=for-the-badge&logo=geeksforgeeks)](https://auth.geeksforgeeks.org/user/<your-username>/practice/)
