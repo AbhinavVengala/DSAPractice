@@ -1,32 +1,23 @@
-name: Update Solved Problems Badge
+name: 🔄 Auto Update DSA Badges
 
 on:
-  push:
-    branches: [ "main" ]
-
-permissions:
-  contents: write
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
 
 jobs:
-  update-badge:
+  update:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Count Java files
+      - uses: actions/checkout@v4
+      - name: 🪄 Refresh Stats
         run: |
-          count=$(find . -name "*.java" | wc -l)
-          echo "PROBLEM_COUNT=$count" >> $GITHUB_ENV
-
-      - name: Update README badge
+          curl -s https://leetcode-stats-api.herokuapp.com/Abhinav_Vengala8 > /dev/null
+          curl -s https://gfg-stats-api.onrender.com/user/abhinavvengala8 > /dev/null
+      - name: ✅ Commit & Push
         run: |
-          sed -i "s/Solved-[0-9]*/Solved-${PROBLEM_COUNT}/" README.md
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
-          git add README.md
-          git commit -m "Update badge: solved ${PROBLEM_COUNT} problems" || echo "No changes to commit"
+          git config user.name "GitHub Action"
+          git config user.email "actions@github.com"
+          git add README.md || true
+          git commit -m "🔁 Auto-update DSA stats" || echo "No changes"
           git push

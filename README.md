@@ -1,61 +1,57 @@
 # 🚀 DSA in Java
 
-![Problems Solved](https://img.shields.io/badge/Solved-3-brightgreen?style=for-the-badge)  
-![LeetCode Badge](https://img.shields.io/badge/dynamic/json?style=for-the-badge&logo=leetcode&label=LeetCode&query=totalSolved&url=https://leetcode-stats-api.herokuapp.com/Code_with_Abhinav)
-[![HackerRank Badge](https://img.shields.io/badge/HackerRank-Profile-brightgreen?style=for-the-badge&logo=hackerrank)](https://www.hackerrank.com/<your-username>)
-[![GfG Badge](https://img.shields.io/badge/GeeksforGeeks-Profile-darkgreen?style=for-the-badge&logo=geeksforgeeks)](https://auth.geeksforgeeks.org/user/<your-username>/practice/)
+![Problems Solved](https://img.shields.io/badge/Solved-Auto_Updating-brightgreen?style=for-the-badge)
 
-This repository contains my solutions to **Data Structures & Algorithms (DSA)** problems in **Java** from LeetCode, GeeksforGeeks, InterviewBit, and other platforms.
+<!-- 🟠 LeetCode Stats -->
+![LeetCode Total](https://img.shields.io/badge/dynamic/json?url=https://leetcode-stats-api.herokuapp.com/Abhinav_Vengala8&query=totalSolved&label=LeetCode%20Solved&color=orange&logo=leetcode&style=for-the-badge)
+![LeetCode Easy](https://img.shields.io/badge/dynamic/json?url=https://leetcode-stats-api.herokuapp.com/Abhinav_Vengala8&query=easySolved&label=Easy&color=brightgreen)
+![LeetCode Medium](https://img.shields.io/badge/dynamic/json?url=https://leetcode-stats-api.herokuapp.com/Abhinav_Vengala8&query=mediumSolved&label=Medium&color=orange)
+![LeetCode Hard](https://img.shields.io/badge/dynamic/json?url=https://leetcode-stats-api.herokuapp.com/Abhinav_Vengala8&query=hardSolved&label=Hard&color=red)
 
----
+<!-- 🟢 GeeksforGeeks Stats -->
+![GfG Solved](https://img.shields.io/badge/dynamic/json?url=https://gfg-stats-api.vercel.app/abhinavvengala8&query=total_problems_solved&label=GfG%20Solved&color=darkgreen&logo=geeksforgeeks)
 
-## 📌 Progress Tracker (Topics)
-
--   [ ] Arrays & Strings
--   [ ] Hashing
--   [ ] Two Pointers / Sliding Window
--   [ ] Stack & Queue
--   [ ] Linked List
--   [ ] Binary Search
--   [ ] Recursion & Backtracking
--   [ ] Trees & BST
--   [ ] Graphs
--   [ ] Heap & Priority Queue
--   [ ] Dynamic Programming
--   [ ] Advanced (Trie, Segment Tree, Union-Find)
+<!-- 🟩 HackerRank (Static for now) -->
+[![HackerRank](https://img.shields.io/badge/HackerRank-Profile-brightgreen?style=for-the-badge&logo=hackerrank)](https://www.hackerrank.com/profile/abhinav_vengala8)
 
 ---
 
-## 📊 Solved Problems Table
+### 🌍 Profiles
 
-| #   | Problem                                           | Topic  | Difficulty | Platform | Status  |
-| --- | ------------------------------------------------- | ------ | ---------- | -------- | ------- |
-| 1   | [Two Sum](https://leetcode.com/problems/two-sum/) | Arrays | Easy       | LeetCode | ✅ Done |
-| 2   |                                                   |        |            |          |         |
-| 3   |                                                   |        |            |          |         |
-
-> ✅ = Solved, ⏳ = In Progress, 🔁 = To Revisit
+- [🔸 LeetCode](https://leetcode.com/u/Abhinav_Vengala8/)
+- [🟢 GeeksforGeeks](https://www.geeksforgeeks.org/user/abhinavvengala8/)
+- [🟩 HackerRank](https://www.hackerrank.com/profile/abhinav_vengala8)
 
 ---
 
-## 🌍 Platforms Covered
+## 📊 Problem Statistics (Auto-Updating)
 
--   [LeetCode](https://leetcode.com)
--   [GeeksforGeeks](https://www.geeksforgeeks.org/)
--   [HackerRank](https://www.hackerrank.com/)
--   [Udemy Courses](https://www.udemy.com/)
-
----
-
-## ⚡ Notes
-
--   Each solution is written in **Java 17**.
--   File naming: `ProblemName.java`
--   Each file contains problem metadata in comments at the top.
+| Platform | Easy | Medium | Hard | Total |
+|-----------|------|--------|------|--------|
+| **LeetCode** | ![Easy](https://img.shields.io/badge/dynamic/json?url=https://leetcode-stats-api.herokuapp.com/Abhinav_Vengala8&query=easySolved&label=&color=brightgreen) | ![Medium](https://img.shields.io/badge/dynamic/json?url=https://leetcode-stats-api.herokuapp.com/Abhinav_Vengala8&query=mediumSolved&label=&color=orange) | ![Hard](https://img.shields.io/badge/dynamic/json?url=https://leetcode-stats-api.herokuapp.com/Abhinav_Vengala8&query=hardSolved&label=&color=red) | ![Total](https://img.shields.io/badge/dynamic/json?url=https://leetcode-stats-api.herokuapp.com/Abhinav_Vengala8&query=totalSolved&label=&color=blue) |
+| **GeeksforGeeks** | - | - | - | ![GfG](https://img.shields.io/badge/dynamic/json?url=https://gfg-stats-api.onrender.com/user/abhinavvengala8&query=total_problems_solved&label=&color=darkgreen) |
+| **HackerRank** | - | - | - | 🔹 [Profile](https://www.hackerrank.com/profile/abhinav_vengala8) |
 
 ---
 
-### Example File Format
+## 📘 Topics Covered
+
+- Arrays & Strings  
+- Hashing  
+- Two Pointers / Sliding Window  
+- Stack & Queue  
+- Linked List  
+- Binary Search  
+- Recursion & Backtracking  
+- Trees & BST  
+- Graphs  
+- Heap & Priority Queue  
+- Dynamic Programming  
+- Advanced (Trie, Segment Tree, Union-Find)
+
+---
+
+## 🧩 Example File Format
 
 ```java
 // Problem: Two Sum
@@ -78,12 +74,3 @@ class TwoSum {
         return new int[]{};
     }
 }
-```
-
----
-
-## 🏆 Goals
-
--   Solve **150+ DSA problems** across Easy/Medium/Hard.
--   Master **core DSA concepts** in Java.
--   Be fully prepared for **FAANG-level interviews**.
