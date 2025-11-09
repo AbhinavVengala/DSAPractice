@@ -1,0 +1,77 @@
+name: 🟢 Update GeeksforGeeks Stats
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  update-gfg:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Fetch GfG stats (using provided curl)
+        id: fetch
+        run: |
+          set -euo pipefail
+
+          RESPONSE=$(curl 'https://gfg-stats-api.vercel.app/abhinavvengala8' \
+            -H 'accept: */*' \
+            -H 'accept-language: en-GB,en;q=0.6' \
+            -b 'ext_name=ojplmecpdpgccookcobabopnaifgidhf' \
+            -H 'priority: u=1, i' \
+            -H 'referer: https://gfg-stats-api.vercel.app/?user=abhinavvengala8' \
+            -H 'sec-ch-ua: "Chromium";v="142", "Brave";v="142", "Not_A Brand";v="99"' \
+            -H 'sec-ch-ua-mobile: ?0' \
+            -H 'sec-ch-ua-platform: "macOS"' \
+            -H 'sec-fetch-dest: empty' \
+            -H 'sec-fetch-mode: cors' \
+            -H 'sec-fetch-site: same-origin' \
+            -H 'sec-gpc: 1' \
+            -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36' \
+            --silent --show-error --fail || echo "")
+
+          echo "response=$RESPONSE" >> $GITHUB_OUTPUT
+
+      - name: Prepare README update content
+        id: prepare
+        run: |
+          set -euo pipefail
+          RESPONSE="${{ steps.fetch.outputs.response }}"
+
+          if [ -z "$RESPONSE" ]; then
+            echo "❌ No response received from API. Exiting..."
+            exit 1
+          fi
+
+          # Format JSON into Markdown table, excluding 'userName'
+          TABLE=$(echo "$RESPONSE" | jq -r 'to_entries | map(select(.key != "userName")) | (["Field","Value"], ["------","------"]) , (.[] | [.key, (.value|tostring)]) | @tsv' | column -t -s $'\t')
+
+          # Add header line
+          OUTPUT="<!-- 🟢 GeeksforGeeks Stats -->\n\n🧩 **GeeksforGeeks Profile Stats (Auto Updated):**\n\n\`\`\`\n$TABLE\n\`\`\`"
+
+          # Escape for awk
+          OUTPUT_ESCAPED=$(printf '%s\n' "$OUTPUT" | sed 's/[&/\]/\\&/g')
+
+          # Replace in README
+          if grep -q "<!-- 🟢 GeeksforGeeks Stats -->" README.md; then
+            awk -v repl="$OUTPUT_ESCAPED" 'BEGIN{p=0} {if (index($0,"<!-- 🟢 GeeksforGeeks Stats -->")) {print repl; p=1} else if (!p) print $0} END{if(!p) print "\n" repl}' README.md > README.tmp && mv README.tmp README.md
+          else
+            printf "\n\n%s\n" "$OUTPUT" >> README.md
+          fi
+
+      - name: Commit & push changes (if any)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          if ! git diff --staged --quiet; then
+            git commit -m "🟢 Auto-update full GfG stats (all fields except userName)"
+            git push
+          else
+            echo "No changes to commit"
+          fi
