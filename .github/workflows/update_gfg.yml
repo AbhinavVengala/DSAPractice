@@ -33,9 +33,15 @@ jobs:
             -H 'sec-fetch-site: same-origin' \
             -H 'sec-gpc: 1' \
             -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36' \
-            --silent --show-error --fail || echo "")
+            --silent --show-error || echo "")
 
-          echo "response=$RESPONSE" >> $GITHUB_OUTPUT
+          # Trim leading/trailing spaces and filter only JSON part if any
+          CLEAN_RESPONSE=$(echo "$RESPONSE" | sed -n '/{/,/}/p' | tr -d '\n' | tr -d '\r')
+
+          # Store the cleaned response in output
+          echo "response<<EOF" >> $GITHUB_OUTPUT
+          echo "$CLEAN_RESPONSE" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Prepare README update content
         id: prepare
@@ -45,19 +51,25 @@ jobs:
 
           if [ -z "$RESPONSE" ]; then
             echo "❌ No response received from API. Exiting..."
-            exit 1
+            exit 0
           fi
 
-          # Format JSON into Markdown table, excluding 'userName'
+          # Validate JSON before parsing
+          if ! echo "$RESPONSE" | jq empty >/dev/null 2>&1; then
+            echo "⚠️ Response is not valid JSON. Skipping update."
+            echo "$RESPONSE" | head -n 20
+            exit 0
+          fi
+
+          # Build a markdown table from all fields except userName
           TABLE=$(echo "$RESPONSE" | jq -r 'to_entries | map(select(.key != "userName")) | (["Field","Value"], ["------","------"]) , (.[] | [.key, (.value|tostring)]) | @tsv' | column -t -s $'\t')
 
-          # Add header line
-          OUTPUT="<!-- 🟢 GeeksforGeeks Stats -->\n\n🧩 **GeeksforGeeks Profile Stats (Auto Updated):**\n\n\`\`\`\n$TABLE\n\`\`\`"
+          DATE=$(date +"%Y-%m-%d %H:%M:%S %Z")
 
-          # Escape for awk
+          OUTPUT="<!-- 🟢 GeeksforGeeks Stats -->\n\n🧩 **GeeksforGeeks Profile Stats (Auto Updated):**\n\n\`\`\`\n$TABLE\n\`\`\`\n\n🕒 *Last updated on: ${DATE}*"
+
           OUTPUT_ESCAPED=$(printf '%s\n' "$OUTPUT" | sed 's/[&/\]/\\&/g')
 
-          # Replace in README
           if grep -q "<!-- 🟢 GeeksforGeeks Stats -->" README.md; then
             awk -v repl="$OUTPUT_ESCAPED" 'BEGIN{p=0} {if (index($0,"<!-- 🟢 GeeksforGeeks Stats -->")) {print repl; p=1} else if (!p) print $0} END{if(!p) print "\n" repl}' README.md > README.tmp && mv README.tmp README.md
           else
@@ -70,7 +82,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
           if ! git diff --staged --quiet; then
-            git commit -m "🟢 Auto-update full GfG stats (all fields except userName)"
+            git commit -m "🟢 Auto-update GfG stats (validated JSON)"
             git push
           else
             echo "No changes to commit"
