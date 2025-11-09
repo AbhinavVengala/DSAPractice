@@ -1,3 +1,8 @@
+// Problem: Palindrome Number
+// Platform: LeetCode
+// Difficulty: Easy
+// Link: https://leetcode.com/problems/palindrome-number/description/
+
 public class PalindromeNumber {
     public boolean isPalindrome(int x) {
         int original_number = x;

@@ -1,3 +1,8 @@
+// Problem: Factorial Trailing Zeroes
+// Platform: LeetCode
+// Difficulty: Medium
+// Link: https://leetcode.com/problems/factorial-trailing-zeroes/description/
+
 package Leetcode.Medium;
 
 public class FactorialTrailingZeroes {
