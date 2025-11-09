@@ -1,8 +1,9 @@
 name: 🔄 Auto Update DSA Badges
 
 on:
-  schedule:
-    - cron: '0 0 * * *'
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
