@@ -1,6 +1,6 @@
-package assignment_16;
+package Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_16.src.assignment_16;
 
-import ignore.TestingUtils;
+import Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_16.src.ignore.TestingUtils;
 
 public class App {
 
@@ -19,10 +19,12 @@ public class App {
 	 */
 	
 	public static int yoYo(String str) {
-		
 		// complete the body of this method
-		return 0;
-		  
+        if(str.length()<2) return 0;
+        if(str.substring(0,2).equals("yo"))
+            return 1 + yoYo(str.substring(1));
+        else
+            return yoYo(str.substring(1));
 	}
 
 

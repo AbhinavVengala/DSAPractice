@@ -1,6 +1,6 @@
-package assignment_03;
+package Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_03.src.assignment_03;
 
-import ignore.TestingUtils;
+import Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_03.src.ignore.TestingUtils;
 
 public class App {
 
@@ -16,7 +16,7 @@ public class App {
 		twoSumOne(3, 2, 2) <b>---></b> false <br>
 	 */
 		public static boolean twoSumOne(int a, int b, int c) {
-			
+			if(a + b == c || b + c == a || a + c == b) return true;
 			return false;
 
 		}

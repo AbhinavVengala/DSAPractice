@@ -1,6 +1,7 @@
-package assignment_06;
+package Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_06.src.assignment_06;
 
-import ignore.TestingUtils;
+
+import Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_06.src.ignore.TestingUtils;
 
 public class App {
 
@@ -17,6 +18,7 @@ public class App {
 		isCool(24) <b>---></b> false <br>
 	 */
 		public static boolean isCool(int n) {
+            if(n%11 == 0 || (n%11)+1 == 0) return true;
 			return true;
 		}
 

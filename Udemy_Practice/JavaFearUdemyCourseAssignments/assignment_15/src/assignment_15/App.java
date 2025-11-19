@@ -1,6 +1,7 @@
-package assignment_15;
+package Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_15.src.assignment_15;
 
-import ignore.TestingUtils;
+
+import Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_15.src.ignore.TestingUtils;
 
 public class App {
 
@@ -19,7 +20,20 @@ public class App {
 	 */
 	
 	public static int longestStreak(String str) {
-		return 0;
+        if(str.isEmpty()) return 0;
+        int maxCount = 1;
+        int currentCount = 1;
+
+        for (int i = 1; i < str.length(); i++) {
+            if(str.charAt(i) == str.charAt(i-1)) {
+                currentCount++;
+            } else {
+                currentCount=1;
+            }
+            maxCount = Math.max(maxCount, currentCount);
+        }
+
+		return maxCount;
 	}
 
 	

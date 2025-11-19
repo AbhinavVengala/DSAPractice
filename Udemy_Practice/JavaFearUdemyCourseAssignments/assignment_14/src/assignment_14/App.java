@@ -1,6 +1,7 @@
-package assignment_14;
+package Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_14.src.assignment_14;
 
-import ignore.TestingUtils;
+
+import Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_14.src.ignore.TestingUtils;
 
 public class App {
 
@@ -21,7 +22,13 @@ public class App {
 	 */
 	
 	public static int matchingChar(String[] a, String[] b) {
-		return 0;
+        int count = 0;
+        for (int i = 0; i < a.length; i++) {
+                if(!a[i].isEmpty() && !b[i].isEmpty())
+                    if(a[i].charAt(0) == b[i].charAt(0))
+                        count++;
+        }
+		return count;
 	}
 
 	

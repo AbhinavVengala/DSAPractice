@@ -1,6 +1,6 @@
-package assignment_19;
+package Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_19.src.assignment_19;
 
-import ignore.TestingUtils;
+import Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_19.src.ignore.TestingUtils;
 
 public class App {
 
@@ -23,7 +23,12 @@ public class App {
 	public static String insideBrackets(String str) {
 	
 		// complete the body of this method
-		return str;
+        if(str.length()<2) return str;
+        if(str.charAt(0) != '[')
+            return insideBrackets(str.substring(1));
+        if(str.charAt(str.length()-1) != ']')
+            return insideBrackets(str.substring(0, str.length()-1));
+        return str;
 	}
 
 

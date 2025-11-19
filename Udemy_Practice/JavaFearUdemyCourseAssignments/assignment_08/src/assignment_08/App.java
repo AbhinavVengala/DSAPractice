@@ -1,6 +1,7 @@
-package assignment_08;
+package Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_08.src.assignment_08;
 
-import ignore.TestingUtils;
+
+import Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_08.src.ignore.TestingUtils;
 
 public class App {
 
@@ -20,8 +21,17 @@ public class App {
 	 */
 	
 	public static int sumUnique(int a, int b, int c) {
-		
-		return 0;
+        int sum=0;
+        if(a!=b&&a!=c) {
+            sum += a;
+        }
+        if(a!=b&&b!=c) {
+            sum+=b;
+        }
+        if(a!=c&&b!=c) {
+            sum += c;
+        }
+        return sum;
 		
 	}
 

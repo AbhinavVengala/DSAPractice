@@ -1,6 +1,7 @@
-package assignment_04;
+package Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_04.src.assignment_04;
 
-import ignore.TestingUtils;
+
+import Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_04.src.ignore.TestingUtils;
 
 public class App {
 
@@ -18,8 +19,12 @@ public class App {
 		birdsSinging(95, true) <b>---></b> true <br>
 	 */
 	public static boolean birdsSinging(int temp, boolean isSummer) {
-		
-		return true;		
+        if ((temp<60 || temp>90) && !isSummer) {
+            return false;
+        } else if (isSummer && (temp < 60 || temp>100)) {
+            return false;
+        }
+		return true;
 	}
 	
 	

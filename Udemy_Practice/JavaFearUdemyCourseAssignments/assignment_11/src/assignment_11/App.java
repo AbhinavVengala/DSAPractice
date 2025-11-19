@@ -1,6 +1,7 @@
-package assignment_11;
+package Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_11.src.assignment_11;
 
-import ignore.TestingUtils;
+
+import Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_11.src.ignore.TestingUtils;
 
 public class App {
 
@@ -18,7 +19,13 @@ public class App {
 	 */
 	
 	public static String repeatChar(String str) {
-		return str;
+        String s = "";
+        for(int i=0;i<str.length();i++) {
+            char c = str.charAt(i);
+            s = s+c;
+            s = s+c;
+        }
+		return s;
 		
 	}
 

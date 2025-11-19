@@ -1,6 +1,7 @@
-package ignore;
+package Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_11.src.ignore;
 
-import assignment_11.App;
+
+import Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_11.src.assignment_11.App;
 
 public class TestingUtils {
 	public static void runTests(){

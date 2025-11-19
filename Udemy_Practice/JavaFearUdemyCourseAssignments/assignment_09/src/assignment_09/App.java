@@ -1,6 +1,7 @@
-package assignment_09;
+package Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_09.src.assignment_09;
 
-import ignore.TestingUtils;
+
+import Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_09.src.ignore.TestingUtils;
 
 public class App {
 
@@ -21,8 +22,24 @@ public class App {
 	 */
 	
 	public static int nearestTwentyOne(int a, int b) {
-		
-		return 0;
+		if(a==21||b==21) {
+            return 21;
+
+        }
+        if((a>21)&&(b>21)) {
+            return 0;
+        }
+        if((a<21)&&(b<21)) {
+            if(a<b) {
+                return b;
+            }
+            return a;
+        }
+        else {
+            int c = a - 21;
+            int d = b - 21;
+            return c>d ? b : a;
+        }
 	}
 
 	

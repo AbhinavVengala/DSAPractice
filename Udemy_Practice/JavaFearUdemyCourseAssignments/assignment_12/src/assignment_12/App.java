@@ -1,6 +1,7 @@
-package assignment_12;
+package Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_12.src.assignment_12;
 
-import ignore.TestingUtils;
+
+import Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_12.src.ignore.TestingUtils;
 
 public class App {
 
@@ -19,8 +20,17 @@ public class App {
 	 */
 	
 	public static String starKill(String str) {
-		
-		return str;
+        String s = "";
+        for (int i = 0; i < str.length(); i++) {
+            if(str.charAt(i)=='*')
+                continue;
+            if(i>0&&str.charAt(i-1)=='*')
+                continue;
+            if(i<str.length()-1 && str.charAt(i+1)=='*')
+                continue;
+            s += str.charAt(i);
+        }
+        return s;
 	}
 
 

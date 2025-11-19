@@ -1,7 +1,7 @@
-package assignment_n;
+package Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_n.src.assignment_n;
 
 
-import ignore.TestingUtils;
+import Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_n.src.ignore.TestingUtils;
 
 public class App {
 	

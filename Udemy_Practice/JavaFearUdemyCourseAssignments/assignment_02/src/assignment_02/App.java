@@ -1,6 +1,6 @@
-package assignment_02;
+package Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_02.src.assignment_02;
 
-import ignore.TestingUtils;
+import Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_02.src.ignore.TestingUtils;
 
 public class App {
 
@@ -20,8 +20,16 @@ public class App {
 		speedingFine (65, true) <b>---></b> 0 <br>
 	 */
 		public static int speedingFine(int speed, boolean isHoliday) {
-			
-			return 0;
+            if (speed>60 && speed<=80 && !isHoliday) {
+                return 100;
+            } else if(speed>=80 && !isHoliday) {
+                return 200;
+            } else if (isHoliday && speed>65 && speed<=85) {
+                return 100;
+            } else if (speed>85) {
+                return 200;
+            }
+            return 0;
 
 		}
 		

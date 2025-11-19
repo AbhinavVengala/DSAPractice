@@ -1,6 +1,7 @@
-package assignment_05;
+package Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_05.src.assignment_05;
 
-import ignore.TestingUtils;
+
+import Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_05.src.ignore.TestingUtils;
 
 public class App {
 
@@ -17,8 +18,9 @@ public class App {
 		isOrdered(1, 1, 2, true) <b>---></b> true <br>
 	 */
 	public static boolean isOrdered(int first, int second, int third, boolean itsOk) {
-		
-		return true;
+        if(itsOk && (second < third)) return true;
+		if(!itsOk && (first < second) && (second < third)) return true;
+		return false;
 	}
 	
 	

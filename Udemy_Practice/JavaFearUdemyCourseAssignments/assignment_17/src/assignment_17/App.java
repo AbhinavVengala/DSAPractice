@@ -1,6 +1,7 @@
-package assignment_17;
+package Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_17.src.assignment_17;
 
-import ignore.TestingUtils;
+
+import Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_17.src.ignore.TestingUtils;
 
 public class App {
 
@@ -23,10 +24,14 @@ public class App {
 	public static String endoo(String str) {
 		
 		// complete the body of this method
-		return str;
-		
-		
-	}
+        if(str.isEmpty()) return str;
+        if(str.charAt(0) == 'o') {
+            str.concat("o");
+            return endoo(str.substring(1)) + 'o';
+        }
+        else
+            return str.charAt(0) +  endoo(str.substring(1));
+    }
 
 
 

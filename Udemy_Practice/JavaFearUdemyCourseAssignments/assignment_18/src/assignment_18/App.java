@@ -1,6 +1,7 @@
-package assignment_18;
+package Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_18.src.assignment_18;
 
-import ignore.TestingUtils;
+
+import Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_18.src.ignore.TestingUtils;
 
 public class App {
 
@@ -23,7 +24,10 @@ public class App {
 	public static String hyphenSplit(String str) {
 
 		// complete the body of this method
-		return str;
+        if(str.length()<=1) return str;
+        if(str.charAt(0) == str.charAt(1))
+            return str.charAt(0)+"-"+hyphenSplit(str.substring(1));
+		return str.charAt(0)+hyphenSplit(str.substring(1));
 	}
 
 

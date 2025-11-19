@@ -1,6 +1,7 @@
-package assignment_13;
+package Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_13.src.assignment_13;
 
-import ignore.TestingUtils;
+
+import Udemy_Practice.JavaFearUdemyCourseAssignments.assignment_13.src.ignore.TestingUtils;
 
 public class App {
 
@@ -17,7 +18,12 @@ public class App {
 	 */
 	
 	public static int wordsCount(String[] words, int len) {
-		return 0;
+        int count=0;
+		for(int i=0;i<words.length;i++) {
+            if(words[i].length()==len)
+                count++;
+        }
+        return count;
 	}
 
 	
